@@ -16,7 +16,6 @@ public class BaseScreen {
     public void goHome() {
         driver.navigate().to("https://opentdb.com/");
         assertEquals("Open Trivia DB: Free to use, user-contributed trivia question database.", driver.getTitle());
-        //return new HomeScreen(driver);
     }
 
     public void navigateToSearch(){

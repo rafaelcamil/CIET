@@ -14,24 +14,27 @@ public class ResultScreen extends BaseScreen{
         super(driver);
     }
 
-    public ResultScreen viewResult(String message){
+    public void messageVerify(String message){
         WebElement messageResult = driver.findElement(By.cssSelector("#page-top > div:nth-child(3) > div"));
         assertEquals(message, messageResult.getText());
 
-        return new ResultScreen(driver);
     }
 
-    public ResultScreen listCount(int itens){
+    public void viewResult(){
+        WebElement table = driver.findElement(By.cssSelector("#page-top > div:nth-child(3) > table > tbody"));
+        assertTrue(table.isDisplayed());
+
+    }
+
+    public void listCount(int itens){
         List<WebElement> table = driver.findElements(By.cssSelector("#page-top > div:nth-child(3) > table > tbody > tr"));
         assertEquals(itens,table.size());
 
-        return new ResultScreen(driver);
     }
 
-    public ResultScreen viewPageControl(){
+    public void viewPageControl(){
         WebElement pageControl = driver.findElement(By.cssSelector("#page-top > div:nth-child(3) > center > ul"));
         assertTrue(pageControl.isDisplayed());
 
-        return new ResultScreen(driver);
     }
 }

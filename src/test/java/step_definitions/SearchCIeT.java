@@ -12,12 +12,12 @@ import screens.HomeScreen;
 import screens.ResultScreen;
 import screens.SearchScreen;
 
-public class SearchNotFound {
+public class SearchCIeT {
     WebDriver driver;
     HomeScreen home;
     SearchScreen search;
     ResultScreen result;
-
+/*
     @Before
     public void starUp(){
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\rafae\\OneDrive\\Documents\\chromedriver_win32\\chromedriver.exe");
@@ -65,5 +65,5 @@ public class SearchNotFound {
     @E("^exibe controle de paginação\\.$")
     public void exibeControleDePaginação() {
         result.viewPageControl();
-    }
+    }*/
 }
