@@ -3,6 +3,7 @@ package step_definitions;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
+import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Quando;
 import cucumber.api.java.pt.Então;
 import org.openqa.selenium.WebDriver;
@@ -53,5 +54,16 @@ public class SearchNotFound {
     public void visualizo_uma_mensagem_de_erro_com_o_texto(String message) throws Throwable {
         result = new ResultScreen(driver);
         result.viewResult(message);
+    }
+
+    @Então("^listagem de questões deve ter (\\d+) itens$")
+    public void listagemDeQuestõesDeveTerItens(int itens) {
+        result = new ResultScreen(driver);
+        result.listCount(itens);
+    }
+
+    @E("^exibe controle de paginação\\.$")
+    public void exibeControleDePaginação() {
+        result.viewPageControl();
     }
 }
