@@ -11,18 +11,25 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import screens.HomeScreen;
 import screens.ResultScreen;
 import screens.SearchScreen;
+import support.ConfigFileReader;
+
+import java.util.concurrent.TimeUnit;
 
 public class SearchSteps {
     WebDriver driver;
     HomeScreen home;
     SearchScreen search;
     ResultScreen result;
+    ConfigFileReader reader;
 
     @Before
     public void starUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\rafae\\OneDrive\\Documents\\chromedriver_win32\\chromedriver.exe");
+        reader = new ConfigFileReader();
+        System.setProperty("webdriver.chrome.driver",reader.getDriverPath());
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(reader.getImplicitlyWait(), TimeUnit.SECONDS);
 
         search = new SearchScreen(driver);
         result = new ResultScreen(driver);
